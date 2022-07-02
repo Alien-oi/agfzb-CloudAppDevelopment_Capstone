@@ -13,12 +13,119 @@
 
 </head>
 
-    <body>
-    <!-- Remove this line the first time you edit this file -->
-     This is the index page of your Django app!
+    <body>  
+    
     <!--Add a nav bar here -->
-
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#">Voyage</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+              {% if user.is_authenticated %}
+              <li>
+                  <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+                  <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li>
+                  <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
+                      {% csrf_token %}
+                      <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Username" name="username" >
+                          <input type="password" class="form-control" placeholder="Password" name="psw" >
+                          <button class="btn btn-primary" type="submit">Login</button>
+                          <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                      </div>
+                  </form>
+              </li>
+              {% endif %}
+          </ul>
+      </div>
+  </nav>
+    
     <!--Add a dealer table here -->
+
+    <!-- Footer where Contact Us and about us pages are found-->
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+  
+          <!-- Content -->
+          <h5 class="text">Voyage </h5>
+          <p>Where the wind takes you.</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase">Get in Touch</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Sales Services</a>
+            </li>
+            <li>
+              <a href="#!">Be a Partner</a>
+            </li>
+            <li>
+              <a href="/djangoapp/contact/
+              ">Contact Us</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          <h5 class="text-uppercase">About Voyage</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Our Garunatee</a>
+            </li>
+            <li>
+              <a href="#!">Accredetion</a>
+            </li>
+            <li>
+              <a href="/djangoapp/about/">About Us</a>
+            </li>
+          </ul>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
 
     </body>
 

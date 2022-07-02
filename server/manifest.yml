@@ -1,11 +1,11 @@
   applications:
-  - name: djangoapp
+  - name: zarban97
     routes:
-      - route: $HOST.$DOMAIN
-    memory: 128M
+      - route: zarban97.mybluemix.net
+    memory: 1G
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: zarban97-nginx
     routes:
-      - route: $HOST.$DOMAIN/static
-    memory: 128M
+      - route: zarban97.mybluemix.net/static
+    memory: 1G
     buildpack: staticfile_buildpack
