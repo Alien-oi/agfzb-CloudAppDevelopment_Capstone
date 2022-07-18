@@ -17,11 +17,12 @@ urlpatterns = [
     path(route='', view=views.contact, name='contact'),
 
     # path for registration
-
+path('djangoapp/registration.html/', views.registration_request, name= 'registration'),
     # path for login
+path('djangoapp/user_login.html/', views.login_request, name='login'),
 
     # path for logout
-
+path('logout/', views.logout_request, name='logout'), 
 
     # path for dealer reviews view
 
